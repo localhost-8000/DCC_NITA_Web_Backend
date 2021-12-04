@@ -1,0 +1,16 @@
+{
+  "name": "dcc_nita_backend",
+  "version": "1.0.0",
+  "description": "DCC Club NITA Website backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
