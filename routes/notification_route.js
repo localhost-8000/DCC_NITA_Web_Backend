@@ -8,17 +8,15 @@ const Subscriber = require("../models/Subscriber");
 const router = express.Router();
 
 // implement rate limiting for sending mail......
-router.use(
-    rateLimit({
-        windowMs: 10 * 60 * 1000,  // 10 minutes
-        max: 2,
-        message: "Rate limit exceeded for the api. Only 2 requests per 10 minutes is allowed",
-        headers: true
-    })
-);
+const rateLimiting = rateLimit({
+    windowMs: 2 * 60 * 1000,  // 2 minute
+    max: 1,
+    message: "Rate limit exceeded for the api. Only 1 requests per 2 minutes is allowed",
+    headers: true
+});
 
 // send mail...
-router.post('/contact-us', (req, res) => {
+router.post('/contact-us', rateLimiting, (req, res) => {
     try {
         const userEmail = req.body.email;
         const userName = req.body.name;
