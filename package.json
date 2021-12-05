@@ -4,6 +4,7 @@
   "description": "DCC Club NITA Website backend",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "npm test"
   },
   "author": "",
