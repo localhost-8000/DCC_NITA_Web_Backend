@@ -9,4 +9,5 @@ module.exports = {
     pass: process.env.PASSWORD,
     port: process.env.PORT,
     refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+    mongoURL: process.env.MONGO_URL
 };

@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 transporter.verify((err, success) => {
     err
         ? console.log(err)
-        : console.log(`==server is ready to send message: ${success}==`);
+        : console.log(`====Is server ready to send message: ${success}====`);
 });
 
 

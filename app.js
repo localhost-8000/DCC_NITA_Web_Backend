@@ -1,9 +1,25 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 const cors = require("cors");
+const { mongoURL } = require("./config");
 require("dotenv").config();
 
 const app = express();
+
+// setup mongoDB connection....
+mongoose.connect(mongoURL, 
+    { 
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then( () => {
+        console.log('Connected to MongoDB server...');
+    })
+    .catch( err => {
+        console.log('No connection...', err);
+    });
+
 
 //==================middleware=============================
 app.use(cors({
@@ -16,6 +32,7 @@ app.use(express.json({ limit: '5mb'}));
 app.use(express.urlencoded({ limit: '5mb', extended: true}));
 
 
+
 //==================routes=================================
 
 app.get('/', (req, res) => {
@@ -24,9 +41,6 @@ app.get('/', (req, res) => {
 
 
 app.use('/api/notifications', require("./routes/notification_route"));
-
-
-
 
 
 //====================server=================================
