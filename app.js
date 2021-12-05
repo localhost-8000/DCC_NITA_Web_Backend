@@ -23,8 +23,8 @@ mongoose.connect(mongoURL,
 
 //==================middleware=============================
 app.use(cors({
-    methods: ['GET', 'POST'],
-    origin: ['*', 'https://frontend-server-example.com']
+    methods: 'GET, POST',
+    origin: 'http://dccnita.herokuapp.com'
 }));
 app.use(morgan('dev'));
 
